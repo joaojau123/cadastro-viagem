@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Viagem</title>
+  <style>
+    body {
+      background-color: green;
+      color: black;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: lightgreen;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    input, select, button {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid black;
+    }
+
+    button {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #mensagem {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cadastro de Viagem</h1>
+  <form id="viagemForm">
+    <input type="text" id="nome" placeholder="Nome" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="tel" id="whatsapp" placeholder="WhatsApp" required>
+    <select id="destino" required>
+      <option value="">Escolha o destino</option>
+      <option value="praia">Praia</option>
+      <option value="montanha">Montanha</option>
+      <option value="cidade">Cidade</option>
+    </select>
+    <button type="button" onclick="validarFormulario()">Enviar</button>
+  </form>
+
+  <p id="mensagem"></p>
+
+  <script>
+    function validarFormulario() {
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const whatsapp = document.getElementById("whatsapp").value;
+      const destino = document.getElementById("destino").value;
+      const mensagem = document.getElementById("mensagem");
+
+      if (nome && email && whatsapp && destino) {
+        mensagem.textContent = "Cadastro realizado com sucesso!";
+        mensagem.style.color = "darkgreen";
+      } else {
+        mensagem.textContent = "Por favor, preencha todos os campos.";
+        mensagem.style.color = "red";
+      }
+    }
+  </script>
+
+</body>
+</html>
